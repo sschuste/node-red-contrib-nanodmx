@@ -18,4 +18,6 @@ Requires [Node-Red](http://nodered.org)
 * node-red-contrib-nanodmx node takes an array of ints (0-255) as input.
 * node-red-contrib-nanodmx requires the serialport node library. Similarly, the serialport needs to be assigned, COM3, COM4, or /dev/ttyS0, etc
 * The DMX starting address is assignable in the object. This shifts where the preset array is stored in the Universe buffer.
-* Checkout the example Flow called "DMX Presets with MongoDB2 and DMXUSBPRO node"
+
+## Thanks
+Thanks to blechdom 
