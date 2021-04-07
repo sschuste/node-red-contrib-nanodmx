@@ -1,0 +1,22 @@
+{
+  "name": "node-red-contrib-nanodmx",
+  "version": "1.0.2",
+  "description": "node-red driver for DMX4ALL NanoDMX USB interface - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx requires node-serialport module",
+  "main": "nanodmx.js",
+  "dependencies"  : {
+        "serialport"   : "^6.2.0"
+    },
+  "keywords": [ "node-red" ],
+  "repository" : {
+        "type":"git",
+        "url":"https://github.com/sschuste/node-red-contrib-nanodmx.git"
+    },
+  "author": "^Stefan Schustereit",
+  "email": "stefan.schustereit@icloud.com",
+  "license": "ISC",
+  "node-red": {
+        "nodes": {
+            "nanodmx": "nanodmx.js"
+        }
+    }
+}
