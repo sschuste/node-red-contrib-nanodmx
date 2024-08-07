@@ -2,7 +2,7 @@
   "name": "node-red-contrib-nanodmx",
   "version": "0.0.1",
   "description": "Node Red node for the DMX4ALL NanoDMX USB interface - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx. Requires node-serialport module",
-  "main": "dmx4all.js",
+  "main": "nanodmx.js",
   "dependencies": {
     "serialport": "^10.5.0"
   },
@@ -22,7 +22,7 @@
   "license": "ISC",
   "node-red": {
     "nodes": {
-      "dmx4all": "dmx4all.js"
+      "dmx4all": "nanodmx.js"
     }
   },
   "bugs": {
