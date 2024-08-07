@@ -1,6 +1,6 @@
 # node-red-contrib-nanodmx
 
-A simple [Node-Red](http://nodered.org) driver for the DMX USB interface by DMX4ALL.
+A simple [Node-Red](http://nodered.org) driver for the NanaDMX USB interface by DMX4ALL.
 
 ## Pre-requisites
 
