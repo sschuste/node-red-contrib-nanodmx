@@ -1,41 +1,152 @@
 <script type="text/javascript">
-    RED.nodes.registerType('dmx4all',{
+    RED.nodes.registerType('nanodmx',{
         category: 'DMX',
         color: '#ffaaaa',
         defaults: {
             name: { value: "" },
-            port: { value: "", required: true },
-            dmxStartingAddress: { value: 1, required: true }
+            config: { type: "nanodmx-config", required: true }
         },
         inputs: 1,
         outputs: 1,
-        icon: "light.png",
+        icon: "fa_sliders",
         label: function() {
-            return this.name || "DMX4ALL";
+            return this.name || "nanodmx";
+        }
+    });
+
+    RED.nodes.registerType('nanodmx-config',{
+        category: 'config',
+        defaults: {
+            name: { value: "" },
+            port: { value: "", required: true },
+            dmxStartingAddress: { value: 1 },
+            baudrate: { value: 38400 },
+            databits: { value: 8 },
+            stopbits: { value: 1 },
+            parity: { value: "none" }
+        },
+        label: function() {
+            return this.name || "nanodmx config";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="dmx4all">
+<script type="text/x-red" data-template-name="nanodmx">
     <div class="form-row">
-        <label for="node-input-port"><i class="fa fa-random"></i> Port</label>
-        <input type="text" id="node-input-port" placeholder="COM3 or /dev/ttyS0">
-    </div>
-    <div class="form-row">
-        <label for="node-input-dmxStartingAddress"><i class="fa fa-hashtag"></i> DMX Starting Address</label>
-        <input type="text" id="node-input-dmxStartingAddress" placeholder="1">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-cog"></i> Settings</label>
+        <input type="text" id="node-input-config" placeholder="Select configuration" data-i18n="[placeholder]node-red:common.label.selectNode">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="dmx4all">
-    <p>Sends DMX data through the DMX4ALL NanoDMX device</p>
-    <p>Adapted and simplified from the existing node-dmx package @ https://www.npmjs.com/package/dmx requires node-serialport module (has a lot more functionality than included here)</p>
-    <p>DMX4ALL node takes an array of ints as input.</p>
-    <p>DMX4ALL requires the serialport node library. Similarly, the serialport needs to be assigned, COM3, COM4, or /dev/ttyS0, etc</p>
-    <p>The DMX presets can be offset by a base DMX address. This changes where the preset is stored in the universe</p>
-    <p>the DMX4ALL copies the preset array into a 512 size buffer/universe according to the offset in order to send.</p>
+<script type="text/x-red" data-template-name="nanodmx-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-random"></i> Port</label>
+        <input type="text" id="node-config-input-port" placeholder="something like COM3 or /dev/ttyACM0">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-baudrate"><i class="fa fa-random"></i> Baudrate</label>
+        <select type="text" id="node-config-input-baudrate" style="width:50%;">
+            <option value="19200">19200</option>
+            <option value="38400">38400</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-databits"><i class="fa fa-random"></i> Data Bits</label>
+	8
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-stopbits"><i class="fa fa-random"></i> Stop Bits</label>
+	1
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-parity"><i class="fa fa-random"></i> Parity</label>
+        none
+    </div>
+    <div class="form-tips" id="tip-waitfor">
+        <span>
+            <ul>
+		<li>The baud rate is generally 38400, but some older devices also support 19200.</li>
+		<li>Data bits is always 8.</li>
+		<li>Stopp bits is always 1.</li>
+		<li>Parity is always none.</li>
+            </ul>
+        </span>
+    </div>
+    <div class="form-row">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-dmxStartingAddress"><i class="fa fa-hashtag"></i> DMX Starting Address</label>
+        <input type="text" id="node-config-input-dmxStartingAddress" placeholder="1">
+    </div>
 </script>
+
+<script type="text/x-red" data-help-name="nanodmx">
+    <p>Sends DMX data through a DMX4ALL NanoDMX DMX USB device.</p>
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">array</span>
+            </dt>
+            <dd>nanodmx accepts an array of objects.</dd>
+
+            <dt class="optional">Port <span class="property-type">string</span></dt>
+            <dd>Specify your serial port, e.g. /dev/ttyACM0 or COM3</dd>
+
+            <dt class="optional">Baudrate <span class="property-type">number</span></dt>
+            <dd>Enter the baud rate of your DMX device, either 38400 or 19200. The latter value is only supported by older devices.</dd>
+
+            <dt class="optional">Data bits <span class="property-type">number</span></dt>
+            <dd>DMX4ALL NanoDMX supports 8 data bits. This setting cannot be changed..</dd>
+
+            <dt class="optional">Stop bits <span class="property-type">number</span></dt>
+            <dd>DMX4ALL NanoDMX supports 1 data bit. This setting cannot be changed.</dd>
+
+            <dt class="optional">Parity <span class="property-type">string</span></dt>
+            <dd>DMX4ALL NanoDMX supports <i>none</i> as parity. This setting cannot be changed.</dd>
+
+            <dt class="optional">DMX starting address <span class="property-type">number</span></dt>
+            <dd>The starting address of your universe. Defaults to 1.</dd>
+
+            <dt class="optional">Name <span class="property-type">string</span></dt>
+            <dd>Name this node(optional)</dd>
+        </dl>
+    <h3>Outputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">as per input</span>
+            </dt>
+            <dd>If triggered the output will be the same as the input. Sending
+                no input will return the entire universe.</dd>
+        </dl>
+
+    <h3>Details</h3>
+        <p>nanodmx expects an array of objects. Your <code>msg.payload</code> should contain
+           simple key/value pairs with the DMX address as key and a value as value.</p>
+        <p>Looks like this:</p>
+        <p><code>msg.payload = { "1": 128, "2": 97, "8": 255, "7": 15 };</code></p>
+        <p>(DMX address 1 gets value 128, DMX address 2 gets value 97, DMX address 8 gets value 255 and DMX address 7 gets value 15)</p>
+        <p>There is no need to send the values of the entire universe. You can address up to 512 channels, or only one or two or how many you would like to.</p>
+        <p>If you send an empty payload, the node will return the current universe.</p>
+
+    <h3>Hints</h3>
+        <p>In allmost all cases the setting for the DMX device will be 8-N-1 (8 data bits, no parity, 1 stopbit). Refer to the manual of your device for the baudrate.</p>
+        <p>If you have problems getting the DMX device to work, take a look at the Node Red log to see if the device could be initialized. Make sure that the user running Node Red is allowed to use the serial interface of your machine.</p>
+
+    <h3>Notice</h3>
+        <p>nanodmx needs the serialport library.</p>
+
+    <h3>Thanks</h3>
+        <p>This is a simplified port from the existing node-dmx (https://www.npmjs.com/package/dmx).
+           The original package has much more functionality than included here.</p>
+        <p>Thanks to blechdom who inspired me with her adaption for an Enntec USB interface.
+           You might find this useful, too (https://github.com/blechdom/node-red-contrib-dmxusbpro).<p>
+</script>
+
