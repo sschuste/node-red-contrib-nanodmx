@@ -1,22 +1,31 @@
 {
-  "name": "node-red-contrib-dmx4all",
+  "name": "node-red-contrib-nanodmx",
   "version": "0.0.1",
-  "description": "Node Red node for DMX4ALL USB interfaces - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx requires node-serialport module",
-  "main": "dmx4all.js",
-  "dependencies"  : {
-        "serialport"   : "^9.0.7"
-    },
-  "keywords": [ "node-red" ],
-  "repository" : {
-        "type":"git",
-        "url":"https://github.com/sschuste/node-red-contrib-dmx4all.git"
-    },
+  "description": "Node Red node for the DMX4ALL NanoDMX USB interface - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx. Requires node-serialport module",
+  "main": "nanodmx.js",
+  "dependencies": {
+    "serialport": ">9.0.0"
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sschuste/node-red-contrib-nanodmx.git"
+  },
   "author": "Stefan Schustereit",
   "email": "stefan.schustereit@icloud.com",
   "license": "ISC",
   "node-red": {
-        "nodes": {
-            "dmx4all": "dmx4all.js"
-        }
+    "nodes": {
+      "nanodmx": "nanodmx.js"
     }
+  },
+  "bugs": {
+    "url": "https://github.com/sschuste/node-red-contrib-nanodmx/issues"
+  },
+  "homepage": "https://github.com/sschuste/node-red-contrib-nanodmx#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
