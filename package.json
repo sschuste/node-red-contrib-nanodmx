@@ -4,7 +4,8 @@
   "description": "Node Red node for the DMX4ALL NanoDMX USB interface - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx. Requires node-serialport module",
   "main": "nanodmx.js",
   "dependencies": {
-    "serialport": "^10.5.0"
+    "serialport": "^10.5.0",
+    "@serialport/bindings-cpp": "^10.5.0"
   },
   "keywords": [
     "node-red",
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/sschuste/node-red-contrib-nanodmx#readme",
   "scripts": {
+    "postinstall": "(cd ../node_modules/node-red-contrib-nanodmx/node_modules/@serialport/bindings-cpp && npm run rebuild)",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
