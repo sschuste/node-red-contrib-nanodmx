@@ -1,3 +1,10 @@
+// This part of the code is based on node-dmx (https://github.com/node-dmx/dmx),
+// especially on the dmx4all driver. Thanks to bluemaex and his contributors.
+//
+// If you need more functionalities than this Node Red node offers, you should
+// have a look at node-dmx.
+
+
 "use strict"
 
 // var SerialPort = require("serialport")
