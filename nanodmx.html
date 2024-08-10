@@ -123,13 +123,11 @@
             <dt>payload
                 <span class="property-type">as per input</span>
             </dt>
-            <dd>If triggered the output will be the same as the input. Sending
-                no input will return the entire universe.</dd>
+            <dd>The output is what you have sent to the input, unless you send an empty object or an empty string to the node.</dd>
         </dl>
 
     <h3>Details</h3>
-        <p>nanodmx expects an array of objects. Your <code>msg.payload</code> should contain
-           simple key/value pairs with the DMX address as key and a value as value.</p>
+        <p>nanodmx expects an objects containing simple key/value pairs with the DMX address as key and a value as value.</p>
         <p>Looks like this:</p>
         <p><code>msg.payload = { "1": 128, "2": 97, "8": 255, "7": 15 };</code></p>
         <p>(DMX address 1 gets value 128, DMX address 2 gets value 97, DMX address 8 gets value 255 and DMX address 7 gets value 15)</p>
@@ -137,7 +135,7 @@
         <p>If you send an empty payload, the node will return the current universe.</p>
 
     <h3>Hints</h3>
-        <p>In allmost all cases the setting for the DMX device will be 8-N-1 (8 data bits, no parity, 1 stopbit). Refer to the manual of your device for the baudrate.</p>
+        <p>In all cases the setting for the NanoDMX device will be 8-N-1 (8 data bits, no parity, 1 stopbit). The baud rate is 38400, although older devices also support 19200.</p>
         <p>If you have problems getting the DMX device to work, take a look at the Node Red log to see if the device could be initialized. Make sure that the user running Node Red is allowed to use the serial interface of your machine.</p>
 
     <h3>Notice</h3>
@@ -149,4 +147,3 @@
         <p>Thanks to blechdom who inspired me with her adaption for an Enntec USB interface.
            You might find this useful, too (https://github.com/blechdom/node-red-contrib-dmxusbpro).<p>
 </script>
-
