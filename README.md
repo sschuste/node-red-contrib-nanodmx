@@ -8,7 +8,7 @@ Requires [Node-Red](http://nodered.org)
 
 ## Installation
 
-    $ npm i --save node-red-contrib-nanodmx
+    $ npm i node-red-contrib-nanodmx
 
 ## Description
 
