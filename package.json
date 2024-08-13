@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-nanodmx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node Red node for the DMX4ALL NanoDMX USB interface - adapted and simplified from node-dmx package https://www.npmjs.com/package/dmx. Requires the serialport module.",
   "main": "nanodmx.js",
   "dependencies": {
@@ -20,7 +20,7 @@
     "name": "Stefan Schustereit",
     "email": "stefan.schustereit@icloud.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "node-red": {
     "nodes": {
       "dmx4all": "nanodmx.js"
@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/sschuste/node-red-contrib-nanodmx#readme",
   "scripts": {
-    "postinstall": "(cd ../node_modules/node-red-contrib-nanodmx/node_modules/@serialport/bindings-cpp && npm run rebuild)",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

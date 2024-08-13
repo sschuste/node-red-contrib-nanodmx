@@ -28,3 +28,6 @@ You can address a maximum of 512 channels (1 - 512), but it is not necessary to 
 
 ### Output
 The output is what you have sent to the input, unless you send an empty object or an empty string to the node. In this case, the current values of all 512 channels are returned.
+
+## Hints
+The user running Node Red must have read and write access to the serial interface. Under Linux, it is generally sufficient to add this user to the dialout group.
