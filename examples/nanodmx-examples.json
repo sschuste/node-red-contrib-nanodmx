@@ -1,0 +1,267 @@
+[
+    {
+        "id": "d1d4796f5ab0c426",
+        "type": "debug",
+        "z": "913768e5.72f2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "566abafcbdc7d136",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject {}",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 670,
+        "y": 820,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "9b4836ea5cd3e8e4",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject Empty String",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 710,
+        "y": 700,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "aa1a5d2620e991c6",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject true",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 680,
+        "y": 780,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "cf0f5d9a43f802e0",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject \"foobar\"",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "foobar",
+        "payloadType": "str",
+        "x": 690,
+        "y": 740,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "9071bcf161d37c5b",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject {\"foo\":\"bar\"}",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "foo/bar",
+        "payload": "{\"foo\":\"bar\"}",
+        "payloadType": "json",
+        "x": 710,
+        "y": 860,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "c2bb311c4d494107",
+        "type": "nanodmx",
+        "z": "913768e5.72f2",
+        "name": "",
+        "config": "",
+        "x": 980,
+        "y": 780,
+        "wires": [
+            [
+                "d1d4796f5ab0c426"
+            ]
+        ]
+    },
+    {
+        "id": "cc3cbbc6bef8e439",
+        "type": "inject",
+        "z": "913768e5.72f2",
+        "name": "Inject {\"1\":128}",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"1\":128}",
+        "payloadType": "json",
+        "x": 700,
+        "y": 940,
+        "wires": [
+            [
+                "c2bb311c4d494107"
+            ]
+        ]
+    },
+    {
+        "id": "3aecf93fcad74afb",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns current values of the universe",
+        "info": "",
+        "x": 410,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "f66fc8db18e7d660",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns current values of the universe",
+        "info": "",
+        "x": 410,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "244770a8d0bf9274",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns current values of the universe",
+        "info": "",
+        "x": 410,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6886a1b20cc9d465",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns string \"foobar\" (no further action)",
+        "info": "",
+        "x": 400,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "78a2e54142807225",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns object {\"foo\":\"bar\"} (no further action)",
+        "info": "",
+        "x": 390,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "e69deaa35069c7e9",
+        "type": "comment",
+        "z": "913768e5.72f2",
+        "name": "Returns object {\"1\":128} and adresses channel 1 with value 128",
+        "info": "",
+        "x": 330,
+        "y": 940,
+        "wires": []
+    }
+]
