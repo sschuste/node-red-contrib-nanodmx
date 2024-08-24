@@ -4,7 +4,7 @@ A simple [Node-Red](http://nodered.org) driver for the NanoDMX USB interface by 
 
 ## Pre-requisites
 
-Requires [Node-Red](http://nodered.org)
+Requires [Node-Red](http://nodered.org). 
 
 ## Installation
 
@@ -13,7 +13,7 @@ Requires [Node-Red](http://nodered.org)
 ## Description
 
 * Sends DMX data through the DMX4ALL NanoDMX device.
-* Adapted, simplified, hacked from the existing [node-dmx package](https://www.npmjs.com/package/dmx).
+* Adapted, simplified, hacked from the existing [node-dmx package](https://www.npmjs.com/package/dmx). If you want to do more with your moving heads, you should definitely take a look.
 * Requires the serialport nodejs library. Similarly, the serialport needs to be assigned, COM3, COM4, or /dev/ttyS0, etc.
 
 ## How it works
