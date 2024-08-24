@@ -1,6 +1,6 @@
 module.exports = function(RED) {
     "use strict";
-    var DMX = require('./nanodmx_driver.js');
+    const DMX = require('./nanodmx_driver.js');
 
     function DMXout(config) {
         RED.nodes.createNode(this, config);

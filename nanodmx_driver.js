@@ -48,9 +48,9 @@ DMX.prototype.send_universe = function() {
 	}
 	this.dev.write(msg, (err) => {
 		if (err) {
-			console.error("[error] Failed to send DMX datai to NanoDMX: ", err);
+			console.error("[error] Failed to send DMX data to NanoDMX: ", err);
 		} else {
-			console.log("[info] DMX data sent successfullyi to NanoDMX.");
+			console.log("[info] DMX data sent successfully to NanoDMX.");
 		}
 	});
 }
