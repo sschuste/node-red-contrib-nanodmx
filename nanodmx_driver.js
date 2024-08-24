@@ -7,11 +7,8 @@
 
 "use strict"
 
-// var SerialPort = require("serialport")
 const { SerialPort } = require("serialport");
-
-
-var UNIVERSE_LEN = 512;
+const UNIVERSE_LEN = 512;
 
 function DMX(port, baudrate, databits, stopbits, parity, current_universe) {
 	console.log("[info] Initalizing NanoDMX USB interface on " + port + " (" + baudrate + " baud, " + databits + "-" + parity + "-" + stopbits + ")");
